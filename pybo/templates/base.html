@@ -9,9 +9,15 @@
     <title>Hello, pybo!</title>
 </head>
 <body>
+<!--플라스크 템플릿 기능 include 공통으로 자주 쓰이는 templeate 은 이렇게 정의하자-->
+{% include "navbar.html" %}
 <!--기본 템플릿 안에 삽입될 내용 Start-->
 {% block content %}
 {% endblock %}
 <!--기본 템플릿 안에 삽입될 내용 End-->
+<!--작은 메뉴버튼을 클릭해도 아무런 변화가 없을 것이다. 그 이유는 부트스트랩 자바스크립트 파일(bootstrap.min.js)이 base.html 파일에 포함되지 않았기 때문이다. 또 부트스트랩 자바스크립트는 제이쿼리(jQuery)기반이므로 제이쿼리 자바스크립트 파일도 필요하다.-->
+<!--※ 부트스트랩의 모든 기능을 사용하기 위해서는 제이쿼리와 부트스트랩 자바스크립트가 꼭 필요하다-->
+<script src="{{ url_for('static', filename='jquery-3.5.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
 </body>
 </html>

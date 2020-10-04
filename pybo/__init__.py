@@ -15,15 +15,19 @@ def create_app():
     # ORM
     db.init_app(app)
     migrate.init_app(app, db)
-
-    # ---------------------------------------- [edit] ---------------------------------------- #
+    # models 캐치
     from . import models
-    # ---------------------------------------------------------------------------------------- #
 
-    from .views import main_views, question_views, answer_views
+    # 블루프린트
+    from .views import main_views, question_views, answer_views, auth_views
     app.register_blueprint(main_views.bp)
     app.register_blueprint(question_views.bp)
     app.register_blueprint(answer_views.bp)
+    app.register_blueprint(auth_views.bp)
+
+    # 필터 이후에 datetime 을 필터로 사용 할 수 있다. question.create_date|datetime
+    from .filter import format_datetime
+    app.jinja_env.filters['datetime'] = format_datetime
 
     return app
 # ---------------------------------------- [edit] ---------------------------------------- #

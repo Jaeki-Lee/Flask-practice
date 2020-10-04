@@ -3,7 +3,7 @@
 <div class="container">
     <h5 class="my-3 border-bottom pb-2">질문등록</h5>
     <form method="post" class="post-form my-3">
-        <!-- CSRF는 보안에 관련된 항목으로 form으로 전송된 데이터가 실제 웹페이지에서 작성된 데이터인지를 판단해 주는 가늠자 역할을 한다.-->
+        <!-- CSRF는 보안에 관련된 항목으로 form 으로 전송된 데이터가 실제 웹페이지에서 작성된 데이터인지를 판단해 주는 가늠자 역할을 한다.-->
         {{ form.csrf_token }}
         {% for field, errors in form.errors.items() %}
         <div class="alert alert-danger" role="alert">
